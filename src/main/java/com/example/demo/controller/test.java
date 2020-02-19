@@ -1,7 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.UserNotExiestException;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.lang.reflect.Array;
@@ -28,8 +31,11 @@ public class test {
 
     @RequestMapping("/hello")
     @ResponseBody
-    public String test(){
+    public String test(@RequestParam("user") String user){
 
+        if (user.equals("aaa")){
+            throw new UserNotExiestException();
+        }
         return "hello word";
     }
 
