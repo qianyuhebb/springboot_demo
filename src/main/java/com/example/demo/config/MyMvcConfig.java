@@ -44,8 +44,9 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
                 //静态资源，springboot已经帮我们做好了处理  2.0以上会有影响
-                registry.addInterceptor(new LoginHandlerIntercepter()).addPathPatterns("/**")
-                        .excludePathPatterns("/index.html","/","/user/login","/asserts/**","/webjars/bootstrap/**");
+              /*  registry.addInterceptor(new LoginHandlerIntercepter()).addPathPatterns("/**")
+                        .excludePathPatterns("/index.html","/","/user/login","/asserts/**",
+                                "/webjars/bootstrap/**");*/
             }
         };
         return adapter;
